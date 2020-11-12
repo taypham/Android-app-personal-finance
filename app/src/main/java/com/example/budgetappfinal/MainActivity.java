@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTransctions;
     private Button btnAnalysis;
     //Tay Pham Comment
-
+    // Laura Comment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
