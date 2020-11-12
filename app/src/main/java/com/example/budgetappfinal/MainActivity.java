@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnBudget;
     private Button btnTransctions;
     private Button btnAnalysis;
+    //Tay Pham Comment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
