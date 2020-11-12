@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnBudget;
     private Button btnTransctions;
     private Button btnAnalysis;
+    private Button btnBalance;
     //Tay Pham Comment
     // Laura Comment
     // Ailin Comment
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnBudget =  findViewById(R.id.btnBudget);
         btnTransctions =  findViewById(R.id.btnTransactions);
+        btnBalance =  findViewById(R.id.btnBalance);
         btnAnalysis =  findViewById(R.id.btnAnalysis);
 
         btnBudget.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TransactionsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        btnBalance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BalanceActivity.class);
                 startActivity(intent);
 
             }
