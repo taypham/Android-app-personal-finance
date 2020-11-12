@@ -23,35 +23,36 @@
 
     <TextView
         android:id="@+id/tvCategory"
-        android:layout_width="118dp"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:text="Category"
         android:textAlignment="textStart"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.216" />
 
     <TextView
         android:id="@+id/tvAmount"
-        android:layout_width="109dp"
-        android:layout_height="42dp"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
         android:text="Amount"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.357" />
 
     <TextView
         android:id="@+id/tvDate"
-        android:layout_width="63dp"
-        android:layout_height="45dp"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:text="Date"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +64,7 @@
     <Spinner
         android:id="@+id/spinnerCategory"
         android:layout_width="187dp"
-        android:layout_height="38dp"
+        android:layout_height="40dp"
         android:dropDownWidth="wrap_content"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,8 +76,8 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="182dp"
-        android:layout_height="45dp"
+        android:layout_width="187dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -89,8 +90,8 @@
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="186dp"
-        android:layout_height="41dp"
+        android:layout_width="187dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
