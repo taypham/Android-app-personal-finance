@@ -1,5 +1,10 @@
 <resources>
-<string name="app_name">BudgetAppFinal</string>
+    <string name="app_name">BudgetAppFinal</string>
+    <string name="balance_name">View Your Balance and Income</string>
+    <string name="account">Account</string>
+    <string name="balance">Balance</string>
+    <string name="income_add">Add Income</string>
+    <string name="edtIncome">Toal Income</string>
     <string name="category">Category</string>
     <string name="amount">Amount</string>
     <string name="bills">Bills</string>
