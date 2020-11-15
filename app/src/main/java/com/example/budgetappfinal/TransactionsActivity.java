@@ -2,24 +2,19 @@ package com.example.budgetappfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
+import java.util.ArrayList;
+import android.widget.ArrayAdapter;
+import android.view.View;
 import android.widget.Toast;
 
-import android.os.Bundle;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
-/*
-import wallyson.com.br.mypocket.presenter.SpendingActivityPresenter;
-import wallyson.com.br.mypocket.presenter.SpendingInterface;*/
 
-public class TransactionsActivity extends AppCompatActivity {
+public class TransactionsActivity extends AppCompatActivity implements TransactionsInterface {
     private EditText description, amount, actualDate;
     private Spinner spCategory;
     private Button btnClear, btnSubmit;
@@ -30,33 +25,35 @@ public class TransactionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transactions);
 
-        description = (EditText) findViewById(R.id.editTextDescription);
-        amount = (EditText) findViewById(R.id.editTextAmount);
-        actualDate = (EditText) findViewById(R.id.editTextDate);
-        spCategory = (Spinner) findViewById(R.id.spCategory);
-        btnClear = (Button) findViewById(R.id.btnClear);
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        description = findViewById(R.id.editTextDescription);
+        amount = findViewById(R.id.editTextAmount);
+        actualDate = findViewById(R.id.editTextDate);
+        spCategory = findViewById(R.id.spCategory);
+        btnClear = findViewById(R.id.btnClear);
+        btnSubmit = findViewById(R.id.btnSubmit);
+
+        CategorySpinner();
 
         date = new Date(System.currentTimeMillis());
         SimpleDateFormat Dt = new SimpleDateFormat("DD/MM/YYYY");
         actualDate.setText(Dt.format(date));
         actualDate.setEnabled(false);
 
-        /*btnClear.setOnClickListener(new View.OnClickListener() {
+        btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clean();
+                clear();
             }
         });
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        /*btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( mPresenter.spendingRegistration() )
-                    finish();
+               if (Transaction())
+                  finish();
             }
-        });
-
+        });*/
+    }
         public void clear() {
             description.requestFocus();
             description.setText(null);
@@ -66,39 +63,40 @@ public class TransactionsActivity extends AppCompatActivity {
         }
         public void CategorySpinner() {
             final String[] Category = {
-
-
+                    this.getResources().getString(R.string.bills),
+                    this.getResources().getString(R.string.education),
+                    this.getResources().getString(R.string.entertainment),
+                    this.getResources().getString(R.string.food_dining),
+                    this.getResources().getString(R.string.health_fitness),
+                    this.getResources().getString(R.string.other),
+                    this.getResources().getString(R.string.personal_care),
+                    this.getResources().getString(R.string.shopping),
+                    this.getResources().getString(R.string.transportation),
+                    this.getResources().getString(R.string.travel)
             };
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, Category);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spCategory.setAdapter(adapter);
 
         }
-        public String getDescription() {
-            return description.getText().toString();
-        }
 
-        public String getAmount() {
-            return amount.getText().toString();
-        }
+    public String getDescription() {
+        return description.getText().toString();
+    }
+    public String getAmount() {
+        return amount.getText().toString();
+    }
+    public String getActualDate() {
+        return actualDate.getText().toString();
+    }
+    public String getCategory() {
+        return spCategory.getSelectedItem().toString();
+    }
 
-        public String getEmissionDate() {
-            return actualDate.getText().toString();
-        }
-
-        public String getCategory() {
-            return spCategory.getSelectedItem().toString();
-        }
-        public void successfullyInserted() {
-            Toast.makeText(SpendingActivity.this, getResources().getString(R.string.successfully_registration), Toast.LENGTH_SHORT).show();
-        }
-
-        public void databaseInsertError() {
-            Toast.makeText(SpendingActivity.this, getResources().getString(R.string.database_insert_error), Toast.LENGTH_SHORT).show();
-        }
-
-        public void registrationError() {
-            Toast.makeText(SpendingActivity.this, getResources().getString(R.string.registration_error), Toast.LENGTH_SHORT).show();
-        }*/
+    public void successInserted() {
+        Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.successfully_inserted), Toast.LENGTH_SHORT).show();
+    }
+    public void dbInsertError() {
+        Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.db_insert_error), Toast.LENGTH_SHORT).show();
     }
 }

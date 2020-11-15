@@ -2,4 +2,16 @@
 <string name="app_name">BudgetAppFinal</string>
     <string name="category">Category</string>
     <string name="amount">Amount</string>
+    <string name="bills">Bills</string>
+    <string name="education">Education</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="food_dining"><![CDATA[Food&Dinning]]></string>
+    <string name="health_fitness"><![CDATA[Health&Fitness]]></string>
+    <string name="other">Other</string>
+    <string name="personal_care">Personal Care</string>
+    <string name="shopping">Shopping</string>
+    <string name="transportation">Transportation</string>
+    <string name="travel">Travel</string>
+    <string name="successfully_inserted">Sucessfully Inserted</string>
+    <string name="db_insert_error">Database Insert Error</string>
 </resources>
