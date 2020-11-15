@@ -2,8 +2,11 @@ package com.example.budgetappfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.budgetappfinal.presenter.BalanceActivityPresenter;
+import com.example.budgetappfinal.presenter.BalanceInterface;
 
-public class BalanceActivity extends AppCompatActivity {
+
+public class BalanceActivity extends AppCompatActivity implements BalanceInterface  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
