@@ -66,21 +66,17 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/spnCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="258dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="520dp"
-        android:background="#525252"
+        android:id="@+id/spCategory"
+        android:layout_width="187dp"
+        android:layout_height="40dp"
+        android:dropDownWidth="wrap_content"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <Button
         android:id="@+id/btnSave"
