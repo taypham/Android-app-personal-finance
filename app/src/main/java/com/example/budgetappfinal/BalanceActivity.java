@@ -1,7 +1,6 @@
 package com.example.budgetappfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class BalanceActivity extends AppCompatActivity {
