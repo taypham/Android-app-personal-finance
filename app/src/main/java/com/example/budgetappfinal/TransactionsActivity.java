@@ -2,17 +2,11 @@ package com.example.budgetappfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import android.os.Bundle;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 /*
@@ -30,7 +24,7 @@ public class TransactionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transactions);
 
-        description = (EditText) findViewById(R.id.editTextDescription);
+        description = (EditText) findViewById(R.id.edtBalance);
         amount = (EditText) findViewById(R.id.editTextAmount);
         actualDate = (EditText) findViewById(R.id.editTextDate);
         spCategory = (Spinner) findViewById(R.id.spCategory);
