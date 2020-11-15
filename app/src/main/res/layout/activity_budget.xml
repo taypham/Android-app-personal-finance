@@ -6,17 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".BudgetActivity">
 
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCategory"
+        android:layout_width="121dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/spnCategory"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginBottom="520dp"
+        android:text="@string/category"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="123dp"
+        android:layout_height="31dp"
+        android:layout_alignBottom="@+id/spnCategory"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginBottom="559dp"
+        android:text="@string/amount"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginBottom="552dp"
-        android:text="THis is budget activity"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="558dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/spnCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="258dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="520dp"
+        android:background="#525252"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="294dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="75dp"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
