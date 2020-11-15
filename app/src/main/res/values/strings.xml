@@ -5,7 +5,6 @@
     <string name="balance">Balance</string>
     <string name="income_add">Add Income</string>
     <string name="edtIncome">Toal Income</string>
-
-
-
+    <string name="category">Category</string>
+    <string name="amount">Amount</string>
 </resources>
