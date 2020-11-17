@@ -1,22 +1,16 @@
 <resources>
-    <string name="app_name">BudgetAppFinal</string>
-    <string name="balance_name">View Your Balance and Income</string>
-    <string name="account">Account</string>
-    <string name="balance">Balance</string>
-    <string name="income_add">Add Income</string>
-    <string name="edtIncome">Toal Income</string>
+<string name="app_name">BudgetAppFinal</string>
     <string name="category">Category</string>
     <string name="amount">Amount</string>
+    <string name="transport">Transport</string>
     <string name="bills">Bills</string>
     <string name="education">Education</string>
+    <string name="Entertainment" />
     <string name="entertainment">Entertainment</string>
-    <string name="food_dining"><![CDATA[Food&Dinning]]></string>
-    <string name="health_fitness"><![CDATA[Health&Fitness]]></string>
-    <string name="other">Other</string>
+    <string name="food_dining">Food dining</string>
+    <string name="health_fitness">Health and Fitness</string>
+    <string name="other">Others</string>
     <string name="personal_care">Personal Care</string>
     <string name="shopping">Shopping</string>
-    <string name="transportation">Transportation</string>
-    <string name="travel">Travel</string>
-    <string name="successfully_inserted">Sucessfully Inserted</string>
-    <string name="db_insert_error">Database Insert Error</string>
+    <string name="travel">Travels</string>
 </resources>
