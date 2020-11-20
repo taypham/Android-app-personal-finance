@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BudgetActivity">
+    tools:context=".view.BudgetActivity">
 
 
     <TextView
         android:id="@+id/tvCategory"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_alignBottom="@+id/spnCategory"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="110dp"
-        android:layout_marginEnd="254dp"
+        android:layout_marginEnd="283dp"
         android:layout_marginBottom="463dp"
         android:text="@string/category"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -69,10 +68,10 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/spCategory"
+        android:id="@+id/spCategoryB"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="196dp"
         android:layout_marginTop="110dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="453dp"
@@ -81,35 +80,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvCategory"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="291dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="393dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnClear"
         android:layout_width="115dp"
         android:layout_height="50dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="230dp"
         android:layout_marginBottom="393dp"
         android:text="Clear"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,6 +119,44 @@
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="561dp"
         android:text="Create A Budget by enter amount and choose category"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.ListView
+        android:id="@+id/bgListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="397dp"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBig"
+        android:layout_width="359dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="302dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

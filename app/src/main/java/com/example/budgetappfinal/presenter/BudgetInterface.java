@@ -1,8 +1,8 @@
-package com.example.budgetappfinal;
+package com.example.budgetappfinal.presenter;
 
 public interface BudgetInterface {
-    String getbudgetAmount();
-    String getbudgetCategory();
+    String getBudgetAmount();
+    String getBudgetCategory();
 
     void inserted();
 

@@ -13,4 +13,7 @@
     <string name="personal_care">Personal Care</string>
     <string name="shopping">Shopping</string>
     <string name="travel">Travels</string>
+    <string name="transportation">Transportation</string>
+    <string name="successfully_inserted">Successfully Inserted</string>
+    <string name="db_insert_error">Database Insert Error</string>
 </resources>

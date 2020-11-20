@@ -1,4 +1,4 @@
-package com.example.budgetappfinal;
+package com.example.budgetappfinal.model;
 
 public class Budget {
     private int budgetAmount;
@@ -11,6 +11,7 @@ public class Budget {
 
     }
 
+
     public String getBudgetCategory() {
         return budgetCategory;
     }
@@ -20,11 +21,11 @@ public class Budget {
     }
 
 
-    public void setbudgetAmount(int budgetAmount) {
+    public void setBudgetAmount(int budgetAmount) {
         this.budgetAmount = budgetAmount;
     }
 
-    public int getbudgetAmount() {
+    public int getBudgetAmount() {
         return budgetAmount;
     }
 }

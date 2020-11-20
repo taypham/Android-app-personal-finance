@@ -1,7 +1,8 @@
-package com.example.budgetappfinal;
+package com.example.budgetappfinal.presenter;
 import android.content.Context;
-import com.example.budgetappfinal.BudgetInterface;
-import com.example.budgetappfinal.BudgetInterface;
+
+import com.example.budgetappfinal.data.BudgetDao;
+import com.example.budgetappfinal.presenter.BudgetInterface;
 
 public class BudgetActivityPresenter {
     BudgetInterface bView;
@@ -11,15 +12,14 @@ public class BudgetActivityPresenter {
         this.c = context;
     }
     public boolean budgetRegistration() {
-        BudgetDao budget = new BudgetDao(c);
+        BudgetDao budget = new BudgetDao(c,null,null,1);
 
-
-        String amount = bView.getbudgetAmount();
-        String category = bView.getbudgetCategory();
+        String amount = bView.getBudgetAmount();
+        String category = bView.getBudgetCategory();
 
         if (  !amount.equals("") && !category.equals("")) {
 
-            if ( budget.insertBudget(Float.parseFloat(amount),category) ) {
+            if ( budget.insertBudget(Integer.parseInt(amount),category) ) {
                 bView.inserted();
                 return true;
             } else {
