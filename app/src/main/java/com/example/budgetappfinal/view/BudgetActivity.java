@@ -29,10 +29,8 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
     private Spinner spCategory;
     private Button btnClear, btnSave,btnDelete;
     private BudgetActivityPresenter bPresenter;
-    private Budget budget;
     private BudgetDao bDao;
     Database db;
-    TextView tayText;
 
 
     @Override
@@ -41,10 +39,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
         setContentView(R.layout.activity_budget);
         db = new Database(this,null,null,1);
 
-
-        tayText = (TextView) findViewById(R.id.tvBig);
         etAmount = (EditText) findViewById(R.id.edtAmount);
-
         spCategory = (Spinner) findViewById(R.id.spCategoryB);
         bPresenter = new BudgetActivityPresenter(this, this.getApplicationContext() );
         CategorySpinner();
@@ -53,28 +48,8 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
         btnSave = findViewById(R.id.btnSave);
         btnDelete = findViewById(R.id.btnDelete);
 
-         //db = new Database(this,null,null,1);
-        //printDatabase();
+        printBudgetList();
 
-
-       // ArrayList<Budget> budgetArray;
-        //budgetArray = new ArrayList<>();
-
-        //budgetArray = bDao.selectBudget();
-
-        //String [] arrayBtoString =new String[budgetArray.size()];
-       // int i = 0;
-        /*
-        for (Object value : arrayB){
-            arrayBtoString[i] = (String) value;
-            i++;
-        }*/
-
-
-        String [] foods = {"Bacon","Ham","Steak"};
-        ListAdapter bgListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,foods);
-        ListView foodsListView = (ListView) findViewById(R.id.bgListView);
-        foodsListView.setAdapter(bgListAdapter);
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +62,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
             @Override
             public void onClick(View v) {
                 deleteButtonClicked(v);
+                printBudgetList();
             }
         });
 
@@ -94,32 +70,37 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( bPresenter.budgetRegistration() ) {
+                if ( bPresenter.insertBudget() ) {
                     Log.d(TAG, "after clicked btn save");
-                    finish();
+                    //finish();
+                    printBudgetList();
 
                 }
             }
         });
     }
+    public void printBudgetList(){
+        ArrayList<String> budgetArray= new ArrayList<>();
 
-    //Add a budget to database
-    public void saveButtonClicked(View view){
-        Budget budget = new Budget(Integer.parseInt(etAmount.getText().toString()),spCategory.getSelectedItem().toString());
-        db.addBudget(budget);
-        printDatabase();
+        budgetArray = db.getAllBudget();
+
+        String [] arrayBtoString = new String[budgetArray.size()];
+        int i = 0;
+
+        for (Object value : budgetArray){
+            arrayBtoString[i] = (String) value;
+            i++;
+        }
+
+        ListAdapter bgListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayBtoString);
+        ListView foodsListView = (ListView) findViewById(R.id.bgListView);
+        foodsListView.setAdapter(bgListAdapter);
     }
 
     public void deleteButtonClicked(View view){
         String inputText = spCategory.getSelectedItem().toString();
         db.deleteBudget(inputText);
         //printDatabase();
-    }
-
-    public void printDatabase(){
-        String dbString = db.databaseToString();
-        tayText.setText(dbString);
-        etAmount.setText("");
     }
 
     public void CategorySpinner() {

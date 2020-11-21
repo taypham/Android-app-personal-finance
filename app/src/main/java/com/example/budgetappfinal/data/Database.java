@@ -17,46 +17,36 @@ public class Database extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1 ;
     public static final String DATABASE_NAME = "myBudget.db";
     public static final String TABLE_BUDGET = "budget";
-
-
-    public static final String TABLE_BUDGET2 = "budget2";
+    public static final String TABLE_TRANSACTIONS = "transactions";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_CATEGORY = "category2";
-    public static final String COLUMN_AMOUNT = "amount2";
+    public static final String COLUMN_CATEGORY = "category";
+    public static final String COLUMN_AMOUNT = "amount";
 
     public Database(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, 1);
     }
-
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_BUDGET +
                 "(budgetCod integer primary key autoincrement," +
                 "amount real not null, " +
-                "category text not null); " );
-        String queryTest = "CREATE TABLE " +TABLE_BUDGET2+ "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-               /// COLUMN_AMOUNT +" real not null, " +
-                COLUMN_CATEGORY +" TEXT not null"+ ");";
-        db.execSQL(queryTest);
+                "category text not null); "
+        );
+        db.execSQL("create table " + TABLE_TRANSACTIONS +
+                "(id integer primary key autoincrement," +
+                "description text not null," +
+                "category text not null, " +
+                "amount real not null, " +
+                "date text not null);"
+        );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BUDGET);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_TRANSACTIONS);
         onCreate(db);
-    }
-
-    //Add a budget
-    public void addBudget(Budget budget){
-        ContentValues values = new ContentValues();
-       // values.put(COLUMN_AMOUNT,budget.getBudgetAmount());
-        values.put(COLUMN_CATEGORY,budget.getBudgetCategory());
-        SQLiteDatabase db = getWritableDatabase();
-        db.insert(TABLE_BUDGET2,null,values);
-        db.close();
     }
 
     //Delete a budget
@@ -65,22 +55,20 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + TABLE_BUDGET + " WHERE category =\"" + budgetName + "\";");
     }
 
-    // Print out as a string
-    public String databaseToString(){
-        String dbString ="";
-        SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_BUDGET + " WHERE 1";
+    // Return Budget table out as a string array
+    public ArrayList<String> getAllBudget() {
+        ArrayList<String> array_list = new ArrayList<String>();
 
-        //Cursor point to reasult
-        Cursor c = db.rawQuery(query,null);
-        c.moveToFirst();
-        while (!c.isAfterLast()){
-            if(c.getString(c.getColumnIndex("category"))!=null);
-                dbString+= c.getString(c.getColumnIndex("category"));
-                dbString += "\n";
+        //hp = new HashMap();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from budget",null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getString(res.getColumnIndex("category"))+": "+ res.getString(res.getColumnIndex("amount")));
+            res.moveToNext();
         }
-        db.close();
-        return dbString;
+        return array_list;
     }
 
 

@@ -11,7 +11,7 @@ public class BudgetActivityPresenter {
         this.bView = view;
         this.c = context;
     }
-    public boolean budgetRegistration() {
+    public boolean insertBudget() {
         BudgetDao budget = new BudgetDao(c,null,null,1);
 
         String amount = bView.getBudgetAmount();

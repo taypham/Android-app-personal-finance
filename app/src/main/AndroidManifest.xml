@@ -12,7 +12,7 @@
         <activity android:name=".BalanceActivity" >
         </activity>
         <activity android:name=".AnalysisActivity" />
-        <activity android:name=".TransactionsActivity" />
+        <activity android:name=".view.TransactionsActivity" />
         <activity android:name=".view.BudgetActivity" />
         <activity android:name=".MainActivity" >
             <intent-filter>

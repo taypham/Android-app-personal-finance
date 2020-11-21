@@ -1,43 +1,56 @@
-package com.example.budgetappfinal;
+package com.example.budgetappfinal.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import java.util.ArrayList;
 import android.widget.ArrayAdapter;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.budgetappfinal.R;
+import com.example.budgetappfinal.data.Database;
+import com.example.budgetappfinal.presenter.BudgetActivityPresenter;
+import com.example.budgetappfinal.presenter.TransactionsInterface;
+import com.example.budgetappfinal.presenter.TransactionsPresenter;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 public class TransactionsActivity extends AppCompatActivity implements TransactionsInterface {
-    private EditText description, amount, actualDate;
+    private EditText description, amount, dateRecorded;
     private Spinner spCategory;
     private Button btnClear, btnSubmit;
     private Date date;
+    private TransactionsPresenter tPresenter;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transactions);
 
-        description = findViewById(R.id.editTextDescription);
-        amount = findViewById(R.id.editTextAmount);
-        actualDate = findViewById(R.id.editTextDate);
-        spCategory = findViewById(R.id.spCategory);
+        description = (EditText) findViewById(R.id.editTextDescription);
+        amount =(EditText)  findViewById(R.id.editTextAmount);
+        dateRecorded = (EditText) findViewById(R.id.editTextDate);
+        spCategory = (Spinner) findViewById(R.id.spCategory);
         btnClear = findViewById(R.id.btnClear);
         btnSubmit = findViewById(R.id.btnSubmit);
+
+        tPresenter = new TransactionsPresenter(this, this.getApplicationContext() );
+
 
         CategorySpinner();
 
         date = new Date(System.currentTimeMillis());
-        SimpleDateFormat Dt = new SimpleDateFormat("DD/MM/YYYY");
-        actualDate.setText(Dt.format(date));
-        actualDate.setEnabled(false);
+        SimpleDateFormat Dt = new SimpleDateFormat("MM/DD/YYYY");
+        dateRecorded.setText(Dt.format(date));
+        dateRecorded.setEnabled(true);
+
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,19 +59,21 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
             }
         });
 
-        /*btnSubmit.setOnClickListener(new View.OnClickListener() {
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if (Transaction())
-                  finish();
+                if ( tPresenter.insertTransaction() ) {
+                    finish();
+                   // printBudgetList();
+                }
             }
-        });*/
+        });
     }
         public void clear() {
             description.requestFocus();
             description.setText(null);
             amount.setText(null);
-            actualDate.setText(null);
+            dateRecorded.setText(null);
             spCategory.setSelection(0);
         }
         public void CategorySpinner() {
@@ -77,26 +92,38 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, Category);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spCategory.setAdapter(adapter);
-
         }
-
-    public String getDescription() {
+    @Override
+    public String getTransDescription() {
         return description.getText().toString();
     }
-    public String getAmount() {
+    @Override
+    public String getTransAmount() {
         return amount.getText().toString();
     }
-    public String getActualDate() {
-        return actualDate.getText().toString();
+    @Override
+    public String getTransActualDate() {
+        return dateRecorded.getText().toString();
     }
-    public String getCategory() {
+    @Override
+    public String getTransCategory() {
         return spCategory.getSelectedItem().toString();
     }
 
+    @Override
     public void successInserted() {
         Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.successfully_inserted), Toast.LENGTH_SHORT).show();
+
     }
+
+    @Override
     public void dbInsertError() {
         Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.db_insert_error), Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void registrationError() {
+
     }
 }
