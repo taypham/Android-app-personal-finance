@@ -18,10 +18,12 @@ public class Database extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "myBudget.db";
     public static final String TABLE_BUDGET = "budget";
     public static final String TABLE_TRANSACTIONS = "transactions";
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_CATEGORY = "category";
+    public static final String COLUMN_AMOUNT = "amount";
 
-
-    public Database(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+    public Database(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, DATABASE_NAME, factory, 1);
     }
 
     @Override
@@ -32,13 +34,12 @@ public class Database extends SQLiteOpenHelper {
                 "category text not null); "
         );
         db.execSQL("create table " + TABLE_TRANSACTIONS +
-                "(transId integer primary key autoincrement, " +
-                "description text not null, " +
+                "(id integer primary key autoincrement," +
+                "description text not null," +
                 "category text not null, " +
                 "amount real not null, " +
-                "date text not null); "
+                "date text not null);"
         );
-
     }
 
     @Override
@@ -69,22 +70,6 @@ public class Database extends SQLiteOpenHelper {
         }
         return array_list;
     }
-
-
-    public boolean insertTransaction(String description, String category, Float amount, String date) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put("description", description);
-        contentValues.put("category", category);
-        contentValues.put("amount", amount);
-        contentValues.put("date", date);
-        long result = db.insert(TABLE_TRANSACTIONS, null, contentValues);
-        db.close();
-        return true;
-    }
-
-
 
 
 }
