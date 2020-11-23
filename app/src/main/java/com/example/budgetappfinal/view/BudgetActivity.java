@@ -38,6 +38,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
         db = new Database(this);
+        bDao = new BudgetDao(this);
 
         etAmount = (EditText) findViewById(R.id.edtAmount);
         spCategory = (Spinner) findViewById(R.id.spCategoryB);
@@ -82,7 +83,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
     public void printBudgetList(){
         ArrayList<String> budgetArray= new ArrayList<>();
 
-        budgetArray = db.getAllBudget();
+        budgetArray = bDao.getAllBudget();
 
         String [] arrayBtoString = new String[budgetArray.size()];
         int i = 0;
@@ -99,7 +100,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
 
     public void deleteButtonClicked(View view){
         String inputText = spCategory.getSelectedItem().toString();
-        db.deleteBudget(inputText);
+        bDao.deleteBudget(inputText);
         //printDatabase();
     }
 

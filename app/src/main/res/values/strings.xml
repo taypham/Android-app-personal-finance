@@ -1,5 +1,5 @@
 <resources>
-<string name="app_name">BudgetAppFinal</string>
+    <string name="app_name">BudgetAppFinal</string>
     <string name="category">Category</string>
     <string name="amount">Amount</string>
     <string name="transport">Transport</string>

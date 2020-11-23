@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.budgetappfinal" >
+    package="com.example.budgetappfinal">
 
     <application
         android:allowBackup="true"
@@ -8,13 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".view.BalanceActivity" >
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.TransactionHistory"></activity>
+        <activity android:name=".view.BalanceActivity"></activity>
         <activity android:name=".view.AnalysisActivity" />
         <activity android:name=".view.TransactionsActivity" />
         <activity android:name=".view.BudgetActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

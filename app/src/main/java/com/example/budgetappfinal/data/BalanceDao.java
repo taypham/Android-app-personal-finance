@@ -7,7 +7,7 @@ public class BalanceDao {
     private Database database;
 
     public BalanceDao(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        database = new Database(context,null,null,1);
+        database = new Database(context);
     }
 
     public boolean insertBalance(float balance, float addIncome, float income) {
