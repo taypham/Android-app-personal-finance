@@ -17,6 +17,7 @@ public class Database extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1 ;
     public static final String DATABASE_NAME = "myBudget.db";
     public static final String TABLE_BUDGET = "budget";
+    public static final String TABLE_BALANCE = "balance";
     public static final String TABLE_TRANSACTIONS = "transactions";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_CATEGORY = "category";
@@ -40,12 +41,20 @@ public class Database extends SQLiteOpenHelper {
                 "amount real not null, " +
                 "date text not null);"
         );
+        db.execSQL("create table " + TABLE_BALANCE +
+                "(addIncomeCode integer primary key autoincrement," +
+                "balance real not null, " +
+                "addIncome real not null, " +
+                "income real not null); "
+        );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BUDGET);
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_TRANSACTIONS);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BALANCE);
+
         onCreate(db);
     }
 
@@ -70,6 +79,8 @@ public class Database extends SQLiteOpenHelper {
         }
         return array_list;
     }
+
+
 
 
 }
