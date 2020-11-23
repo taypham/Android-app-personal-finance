@@ -32,6 +32,24 @@ public class TransactionDao {
         else
             return true;
     }
+    // Return Budget table out as a string array
+    public ArrayList<String> getAllTransaction() {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = database.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from transactions",null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add("Transaction Amount: $"+res.getString(res.getColumnIndex("amount")) + "\n"+
+                    "Description: "+res.getString(res.getColumnIndex("description"))+"\n"+
+                    "Category: "+res.getString(res.getColumnIndex("category"))+"\n"+
+                    "Date purchased: "+ res.getString(res.getColumnIndex("date")));
+            res.moveToNext();
+        }
+        return array_list;
+    }
     //Update Balance send a call to balance table and update it.
     public void updateBalance(){}
 }

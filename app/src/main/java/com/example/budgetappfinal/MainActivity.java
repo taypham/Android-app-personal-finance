@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.budgetappfinal.view.AnalysisActivity;
 import com.example.budgetappfinal.view.BalanceActivity;
 import com.example.budgetappfinal.view.BudgetActivity;
+import com.example.budgetappfinal.view.TransactionHistory;
 import com.example.budgetappfinal.view.TransactionsActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTransctions;
     private Button btnAnalysis;
     private Button btnBalance;
+    private Button btnTransHistory;
     //Tay Pham Comment
     // Laura Comment
     // Ailin Comment//
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btnTransctions =  findViewById(R.id.btnTransactions);
         btnBalance =  findViewById(R.id.btnBalance);
         btnAnalysis =  findViewById(R.id.btnAnalysis);
+        btnTransHistory =findViewById(R.id.btnTransHistory);
 
         btnBudget.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AnalysisActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        btnTransHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TransactionHistory.class);
                 startActivity(intent);
 
             }

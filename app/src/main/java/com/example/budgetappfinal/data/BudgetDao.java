@@ -38,7 +38,8 @@ public class BudgetDao {
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex("category"))+": "+ res.getString(res.getColumnIndex("amount")));
+            array_list.add(res.getString(res.getColumnIndex("category"))+": $"+
+                    res.getString(res.getColumnIndex("amount")));
             res.moveToNext();
         }
         return array_list;
