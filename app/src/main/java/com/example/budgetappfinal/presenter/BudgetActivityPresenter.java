@@ -12,12 +12,12 @@ public class BudgetActivityPresenter {
         this.c = context;
     }
     public boolean insertBudget() {
-        BudgetDao budget = new BudgetDao(c,null,null,1);
+        BudgetDao budget = new BudgetDao(c);
 
         String amount = bView.getBudgetAmount();
         String category = bView.getBudgetCategory();
 
-        if (  !amount.equals("") && !category.equals("")) {
+        if ( !amount.equals("") && !category.equals("")) {
 
             if ( budget.insertBudget(Integer.parseInt(amount),category) ) {
                 bView.inserted();

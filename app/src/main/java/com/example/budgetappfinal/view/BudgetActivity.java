@@ -37,7 +37,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
-        db = new Database(this,null,null,1);
+        db = new Database(this);
 
         etAmount = (EditText) findViewById(R.id.edtAmount);
         spCategory = (Spinner) findViewById(R.id.spCategoryB);

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.budgetappfinal.view.AnalysisActivity;
+import com.example.budgetappfinal.view.BalanceActivity;
 import com.example.budgetappfinal.view.BudgetActivity;
 import com.example.budgetappfinal.view.TransactionsActivity;
 

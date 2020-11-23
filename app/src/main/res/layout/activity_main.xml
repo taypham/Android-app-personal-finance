@@ -7,16 +7,14 @@
     tools:context=".MainActivity">
 
 
-
     <Button
         android:id="@+id/btnBudget"
         android:layout_width="300dp"
         android:layout_height="95dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="0dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="500dp"
-        android:text="IncomeBudget"
+        android:text="Create a Budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +28,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="500dp"
-        android:text="Transactions"
+        android:text="Add Transactions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,4 +62,21 @@
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnTransHistory"
+        android:layout_width="300dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="500dp"
+        android:text="Transaction History"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
 </androidx.constraintlayout.widget.ConstraintLayout>

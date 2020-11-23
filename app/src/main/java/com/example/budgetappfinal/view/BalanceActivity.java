@@ -1,7 +1,9 @@
-package com.example.budgetappfinal;
+package com.example.budgetappfinal.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.budgetappfinal.R;
 import com.example.budgetappfinal.presenter.BalanceActivityPresenter;
 import com.example.budgetappfinal.presenter.BalanceInterface;
 

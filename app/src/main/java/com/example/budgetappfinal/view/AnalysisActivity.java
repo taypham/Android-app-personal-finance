@@ -1,8 +1,10 @@
-package com.example.budgetappfinal;
+package com.example.budgetappfinal.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.budgetappfinal.R;
 
 public class AnalysisActivity extends AppCompatActivity {
 

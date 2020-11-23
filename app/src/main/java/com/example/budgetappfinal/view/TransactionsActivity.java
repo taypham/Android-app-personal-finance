@@ -1,6 +1,8 @@
 package com.example.budgetappfinal.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -27,12 +29,15 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
     private Button btnClear, btnSubmit;
     private Date date;
     private TransactionsPresenter tPresenter;
-    Database db;
+    Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transactions);
+
+        database = new Database(this);
+        tPresenter = new TransactionsPresenter(this, this.getApplicationContext() );
 
         description = (EditText) findViewById(R.id.editTextDescription);
         amount =(EditText)  findViewById(R.id.editTextAmount);
@@ -41,7 +46,7 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
         btnClear = findViewById(R.id.btnClear);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        tPresenter = new TransactionsPresenter(this, this.getApplicationContext() );
+
 
 
         CategorySpinner();
@@ -64,7 +69,6 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
             public void onClick(View v) {
                 if ( tPresenter.insertTransaction() ) {
                     finish();
-                   // printBudgetList();
                 }
             }
         });
@@ -124,6 +128,6 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
 
     @Override
     public void registrationError() {
-
+        //Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.db_insert_error), Toast.LENGTH_SHORT).show();
     }
 }

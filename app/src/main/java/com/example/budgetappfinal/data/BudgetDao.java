@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class BudgetDao {
     private Database database;
 
-    public BudgetDao(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        database = new Database(context,null,null,1);
+    public BudgetDao(Context context) {
+        database = new Database(context);
     }
 
     public boolean insertBudget(int amount, String category) {
