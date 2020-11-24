@@ -53,4 +53,22 @@ public class AnalysisDao {
         db.close();
         return b;
     }
+
+    public ArrayList<String> getAllBudgets() {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = database.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from budget_analysis",null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add("You have created a budget for: "+res.getString(res.getColumnIndex("category")) + "\n"+
+                    "Total amount: $"+res.getString(res.getColumnIndex("goalAmount"))+"\n"+
+                    "You have spent: $"+res.getString(res.getColumnIndex("spentAmount"))+"\n"+
+                    "You have : $"+ res.getString(res.getColumnIndex("balanceAmount"))+" left to spend");
+            res.moveToNext();
+        }
+        return array_list;
+    }
 }
