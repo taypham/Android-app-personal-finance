@@ -20,12 +20,14 @@ public class BudgetActivityPresenter {
         String amount = bView.getBudgetAmount();
         String category = bView.getBudgetCategory();
         Double spent = 0.0;
+        Double balance = Double.parseDouble(amount);
+        Double progress = 0.0;
 
         if ( !amount.equals("") && !category.equals("")) {
 
             if ( budget.insertBudget(Integer.parseInt(amount),category)) {
                 Toast.makeText(c.getApplicationContext(), "Budget added", Toast.LENGTH_SHORT).show();
-                analysisDao.insertBudgetForAnalysis(category,Integer.parseInt(amount),spent);
+                analysisDao.insertBudgetForAnalysis(category,Integer.parseInt(amount),spent,balance, progress );
                 return true;
             } else {
                 Toast.makeText(c.getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();

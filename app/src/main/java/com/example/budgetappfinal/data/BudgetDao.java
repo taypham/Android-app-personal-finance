@@ -48,6 +48,6 @@ public class BudgetDao {
     public void deleteBudget(String budgetName){
         SQLiteDatabase db = database.getWritableDatabase();
         db.execSQL("DELETE FROM " + database.TABLE_BUDGET + " WHERE category =\"" + budgetName + "\";");
-        db.execSQL("DELETE FROM " + database.TABLE_BUDGET_BALANCE + " WHERE category =\"" + budgetName + "\";");
+        db.execSQL("DELETE FROM " + database.TABLE_BUDGET_ANALYSIS + " WHERE category =\"" + budgetName + "\";");
     }
 }

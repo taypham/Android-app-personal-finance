@@ -21,33 +21,36 @@ public class AnalysisDao {
         database = new Database(context);
     }
 
-    public void insertBudgetForAnalysis(String category,int amount, double spent) {
+    public void insertBudgetForAnalysis(String category,int amount, double spent,double balance,double progress) {
         SQLiteDatabase db = database.getWritableDatabase();
         ContentValues content = new ContentValues();
         content.put("category", category);
         content.put("goalAmount", amount);
         content.put("spentAmount", spent);
-        db.insert(Database.TABLE_BUDGET_BALANCE, null, content);
+        content.put("balanceAmount", balance);
+        content.put("progress", progress);
+        db.insert(Database.TABLE_BUDGET_ANALYSIS, null, content);
         db.close();
     }
-    public static boolean updateTransaction(BudgetAnalysis b) {
+    public static boolean updateAfterTransaction(BudgetAnalysis b) {
         SQLiteDatabase db = database.getWritableDatabase();
         ContentValues content = new ContentValues();
         //content.put("category", b.getBudgetCategory());
         //content.put("goalAmount", amount);
-        content.put("spentAmount", b.getBudgetSpent());
-        db.update(Database.TABLE_BUDGET_BALANCE, content, "category = ? ", new String[] {b.getBudgetCategory()} );
+        content.put("spentAmount", b.getAmountSpent());
+        content.put("balanceAmount", b.getBudgetBalance());
+        content.put("progress", b.getProgress());
+        db.update(Database.TABLE_BUDGET_ANALYSIS, content, "category = ? ", new String[] {b.getBudgetCategory()} );
         return true;
     }
     public static BudgetAnalysis selectBudget(String category) {
         SQLiteDatabase db = database.getReadableDatabase();
-        String sql = "select * from " + Database.TABLE_BUDGET_BALANCE + " where category = '" + category + "';";
+        String sql = "select * from " + Database.TABLE_BUDGET_ANALYSIS + " where category = '" + category + "';";
         Cursor result = db.rawQuery(sql, null);
         result.moveToFirst();
-        BudgetAnalysis b = new BudgetAnalysis( result.getString(1),result.getInt(2), result.getDouble(3));
+        BudgetAnalysis b = new BudgetAnalysis( result.getString(1),result.getInt(2), result.getDouble(3), result.getDouble(4), result.getDouble(5));
         result.close();
         db.close();
-
         return b;
     }
 }

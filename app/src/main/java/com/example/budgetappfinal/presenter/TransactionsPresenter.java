@@ -48,7 +48,9 @@ public class TransactionsPresenter {
         String amount = tView.getTransAmount();
         String category = tView.getTransCategory();
         b = AnalysisDao.selectBudget(category);
-        b.setBudgetSpent( b.getBudgetSpent() + Double.parseDouble(amount) );
-        AnalysisDao.updateTransaction(b);
+        b.setAmountSpent( b.getAmountSpent() + Double.parseDouble(amount) );
+        b.setBudgetBalance(b.getBudgetAmount()- b.getAmountSpent());
+        b.setProgress(b.getAmountSpent()/b.getBudgetAmount());
+        AnalysisDao.updateAfterTransaction(b);
     }
 }
