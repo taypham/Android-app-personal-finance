@@ -5,7 +5,5 @@ public interface TransactionsInterface {
     String getTransAmount();
     String getTransActualDate();
     String getTransCategory();
-    void successInserted();
-    void dbInsertError();
-    void registrationError();
+
 }

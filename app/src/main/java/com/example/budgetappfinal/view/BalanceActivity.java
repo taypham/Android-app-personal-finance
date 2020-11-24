@@ -14,5 +14,6 @@ public class BalanceActivity extends AppCompatActivity implements BalanceInterfa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance);
+
     }
 }

@@ -24,7 +24,7 @@ import com.example.budgetappfinal.presenter.BudgetInterface;
 import java.util.ArrayList;
 
 public class BudgetActivity extends AppCompatActivity implements BudgetInterface {
-    private static final String TAG = BudgetActivity.class.getSimpleName();
+
     private EditText etAmount;
     private Spinner spCategory;
     private Button btnClear, btnSave,btnDelete;
@@ -71,12 +71,11 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( bPresenter.insertBudget() ) {
-                    Log.d(TAG, "after clicked btn save");
-                    //finish();
+                if(bPresenter.insertBudget()){
+                    //bPresenter.insertBudgetBalance();
                     printBudgetList();
-
                 }
+
             }
         });
     }
@@ -134,18 +133,6 @@ public class BudgetActivity extends AppCompatActivity implements BudgetInterface
         return spCategory.getSelectedItem().toString();
     }
 
-    @Override
-    public void inserted() {
-        Toast.makeText(BudgetActivity.this, getResources().getString(R.string.successfully_inserted), Toast.LENGTH_SHORT).show();
 
-    }
-    @Override
-    public void databaseInsertError(){
-        Toast.makeText(BudgetActivity.this, getResources().getString(R.string.db_insert_error), Toast.LENGTH_SHORT).show();
-
-    }
-    @Override
-    public void registrationError(){
-    }
 
 }

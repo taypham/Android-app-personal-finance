@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.budgetappfinal.model.Budget;
 import com.example.budgetappfinal.data.Database;
+import com.example.budgetappfinal.model.Transaction;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class TransactionDao {
         database = new Database(context);
     }
 
-    public boolean insertTransaction(String description, String category, Float amount, String date) {
+    public boolean insertTransaction(String description, String category, Double amount, String date) {
         SQLiteDatabase db = database.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -52,4 +53,6 @@ public class TransactionDao {
     }
     //Update Balance send a call to balance table and update it.
     public void updateBalance(){}
+
+
 }

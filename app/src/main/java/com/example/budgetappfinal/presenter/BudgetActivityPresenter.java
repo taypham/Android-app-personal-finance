@@ -1,6 +1,8 @@
 package com.example.budgetappfinal.presenter;
 import android.content.Context;
+import android.widget.Toast;
 
+import com.example.budgetappfinal.data.AnalysisDao;
 import com.example.budgetappfinal.data.BudgetDao;
 import com.example.budgetappfinal.presenter.BudgetInterface;
 
@@ -13,22 +15,26 @@ public class BudgetActivityPresenter {
     }
     public boolean insertBudget() {
         BudgetDao budget = new BudgetDao(c);
+        AnalysisDao analysisDao = new AnalysisDao(c);
 
         String amount = bView.getBudgetAmount();
         String category = bView.getBudgetCategory();
+        Double spent = 0.0;
 
         if ( !amount.equals("") && !category.equals("")) {
 
-            if ( budget.insertBudget(Integer.parseInt(amount),category) ) {
-                bView.inserted();
+            if ( budget.insertBudget(Integer.parseInt(amount),category)) {
+                Toast.makeText(c.getApplicationContext(), "Budget added", Toast.LENGTH_SHORT).show();
+                analysisDao.insertBudgetForAnalysis(category,Integer.parseInt(amount),spent);
                 return true;
             } else {
-                bView.databaseInsertError();
+                Toast.makeText(c.getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
                 return false;
             }
         } else {
-            bView.registrationError();
+            Toast.makeText(c.getApplicationContext(), "Missing content", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
+
 }

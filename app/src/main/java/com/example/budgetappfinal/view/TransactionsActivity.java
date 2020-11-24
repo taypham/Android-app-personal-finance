@@ -45,10 +45,6 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
         spCategory = (Spinner) findViewById(R.id.spCategory);
         btnClear = findViewById(R.id.btnClear);
         btnSubmit = findViewById(R.id.btnSubmit);
-
-
-
-
         CategorySpinner();
 
         date = new Date(System.currentTimeMillis());
@@ -114,20 +110,4 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
         return spCategory.getSelectedItem().toString();
     }
 
-    @Override
-    public void successInserted() {
-        Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.successfully_inserted), Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void dbInsertError() {
-        Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.db_insert_error), Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void registrationError() {
-        //Toast.makeText(TransactionsActivity.this, getResources().getString(R.string.db_insert_error), Toast.LENGTH_SHORT).show();
-    }
 }

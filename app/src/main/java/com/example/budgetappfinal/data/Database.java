@@ -19,9 +19,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String TABLE_BUDGET = "budget";
     public static final String TABLE_TRANSACTIONS = "transactions";
     public static final String TABLE_BALANCE = "balance";
-    public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_CATEGORY = "category";
-    public static final String COLUMN_AMOUNT = "amount";
+    public static final String TABLE_BUDGET_BALANCE = "budget_balance";
 
     public Database(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -30,7 +28,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_BUDGET +
-                "(budgetCod integer primary key autoincrement," +
+                "(budgetId integer primary key autoincrement," +
                 "amount real not null, " +
                 "category text not null); "
         );
@@ -47,6 +45,13 @@ public class Database extends SQLiteOpenHelper {
                 "addIncome real not null, " +
                 "income real not null); "
         );
+        db.execSQL("create table " + TABLE_BUDGET_BALANCE +
+                "(id integer primary key autoincrement," +
+                "category text not null, " +
+                "goalAmount real not null, " +
+                "spentAmount real not null); "
+        );
+
     }
 
     @Override
@@ -54,6 +59,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BUDGET);
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_TRANSACTIONS);
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BALANCE);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BUDGET_BALANCE);
         onCreate(db);
     }
 }
