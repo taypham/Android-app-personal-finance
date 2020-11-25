@@ -13,6 +13,7 @@ import com.example.budgetappfinal.model.BudgetAnalysis;
 import com.example.budgetappfinal.model.Transaction;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AnalysisDao {
     private static Database database;
@@ -56,7 +57,6 @@ public class AnalysisDao {
 
     public ArrayList<String> getAllBudgets() {
         ArrayList<String> array_list = new ArrayList<String>();
-
         //hp = new HashMap();
         SQLiteDatabase db = database.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from budget_analysis",null );
@@ -71,4 +71,20 @@ public class AnalysisDao {
         }
         return array_list;
     }
+    public ArrayList<BudgetAnalysis> getAllBudgetingData() {
+        ArrayList<BudgetAnalysis> budgetingData = new ArrayList<BudgetAnalysis>();
+        //hp = new HashMap();
+        SQLiteDatabase db = database.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from budget_analysis",null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            BudgetAnalysis b = new BudgetAnalysis(res.getString(res.getColumnIndex("category")),  res.getInt(res.getColumnIndex("goalAmount")), res.getDouble(res.getColumnIndex("spentAmount")),
+                    res.getDouble(res.getColumnIndex("balanceAmount")), res.getDouble(res.getColumnIndex("progress")));
+            budgetingData.add(b);
+            res.moveToNext();
+        }
+        return budgetingData;
+    }
+
 }

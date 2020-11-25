@@ -7,41 +7,32 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.budgetappfinal.AnalysisListviewAdapter;
 import com.example.budgetappfinal.R;
 import com.example.budgetappfinal.data.AnalysisDao;
 import com.example.budgetappfinal.data.TransactionDao;
+import com.example.budgetappfinal.model.BudgetAnalysis;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AnalysisActivity extends AppCompatActivity {
-    AnalysisDao aDao;
+    AnalysisDao analysisDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis);
+        analysisDao = new AnalysisDao(this);
 
-        aDao = new AnalysisDao(this);
+        ArrayList<BudgetAnalysis> budgetAnalysisList = new ArrayList<BudgetAnalysis>();
 
-        printAnalysisList();
+        budgetAnalysisList = analysisDao.getAllBudgetingData();
+
+        ListView listView = (ListView) findViewById(R.id.lvAllBudgetsData);
+        AnalysisListviewAdapter analysisListviewAdapter = new AnalysisListviewAdapter(this, R.layout.analysis_adapter_views_layout, budgetAnalysisList);
+        listView.setAdapter(analysisListviewAdapter);
 
     }
-    public void printAnalysisList(){
-        ArrayList<String> analysisArray= new ArrayList<>();
 
-
-        analysisArray = aDao.getAllBudgets();
-
-        String [] arrayBtoString = new String[analysisArray.size()];
-        int i = 0;
-
-        for (Object value : analysisArray){
-            arrayBtoString[i] = (String) value;
-            i++;
-        }
-
-        ListAdapter bgListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayBtoString);
-        ListView foodsListView = (ListView) findViewById(R.id.lvAnalysis);
-        foodsListView.setAdapter(bgListAdapter);
-    }
 }
