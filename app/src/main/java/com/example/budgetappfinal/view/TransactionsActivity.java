@@ -20,7 +20,9 @@ import com.example.budgetappfinal.presenter.TransactionsPresenter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 
 public class TransactionsActivity extends AppCompatActivity implements TransactionsInterface {
@@ -46,12 +48,12 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
         btnClear = findViewById(R.id.btnClear);
         btnSubmit = findViewById(R.id.btnSubmit);
         CategorySpinner();
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
 
-        date = new Date(System.currentTimeMillis());
-        SimpleDateFormat Dt = new SimpleDateFormat("MM/DD/YYYY");
-        dateRecorded.setText(Dt.format(date));
+        SimpleDateFormat df = new SimpleDateFormat("MMM-dd-yyyy", Locale.getDefault());
+        dateRecorded.setText(df.format(c));
         dateRecorded.setEnabled(true);
-
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -46,13 +46,11 @@ public class TransactionDao {
             array_list.add("Transaction Amount: $"+res.getString(res.getColumnIndex("amount")) + "\n"+
                     "Description: "+res.getString(res.getColumnIndex("description"))+"\n"+
                     "Category: "+res.getString(res.getColumnIndex("category"))+"\n"+
-                    "Date purchased: "+ res.getString(res.getColumnIndex("date")));
+                    "Date purchased: "+ res.getString(res.getColumnIndex("date"))+"\n");
             res.moveToNext();
         }
         return array_list;
     }
     //Update Balance send a call to balance table and update it.
     public void updateBalance(){}
-
-
 }
