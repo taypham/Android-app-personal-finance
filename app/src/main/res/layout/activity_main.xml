@@ -10,89 +10,124 @@
     <Button
         android:id="@+id/btnBudget"
         android:layout_width="130dp"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_marginStart="53dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="500dp"
-        android:text="Create a Budget"
+        android:background="@mipmap/ic_budget"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="@mipmap/ic_budget"
-        android:textColor="#FFFFFF" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnTransactions"
         android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="130dp"
+        android:layout_height="130dp"
         android:layout_marginEnd="53dp"
-        android:layout_marginBottom="500dp"
-        android:text="Add Transactions"
         android:background="@mipmap/ic_addtransaction"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBudget"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.982"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:textColor="#FFFFFF"/>
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toEndOf="@+id/btnBudget"
+        app:layout_constraintTop_toTopOf="@+id/btnBudget"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnBalance"
         android:layout_width="130dp"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_marginStart="53dp"
         android:layout_marginTop="400dp"
-        android:layout_marginEnd="53dp"
         android:layout_marginBottom="500dp"
         android:background="@mipmap/ic_balance"
-        android:text="BALANCE"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659"
-        android:textColor="#FFFFFF"/>
+        app:layout_constraintVertical_bias="0.473" />
 
     <Button
         android:id="@+id/btnAnalysis"
         android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="600dp"
+        android:layout_height="130dp"
         android:layout_marginEnd="53dp"
-        android:layout_marginBottom="500dp"
-        android:text="Analysis"
+        android:background="@mipmap/ic_analysis"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.988"
-        android:background="@mipmap/ic_analysis"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773"
-        android:textColor="#FFFFFF"/>
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toEndOf="@+id/btnBalance"
+        app:layout_constraintTop_toTopOf="@+id/btnBalance"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnTransHistory"
         android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="53dp"
+        android:layout_height="130dp"
         android:layout_marginTop="600dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="500dp"
-        android:text="Transaction History"
+        android:background="@mipmap/ic_transaction"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        android:background="@mipmap/ic_transaction"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnBalance"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546"
-        android:textColor="#FFFFFF"/>
+        app:layout_constraintVertical_bias="0.318" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Create Budget"
+        app:layout_constraintEnd_toEndOf="@+id/btnBudget"
+        app:layout_constraintStart_toStartOf="@+id/btnBudget"
+        app:layout_constraintTop_toBottomOf="@+id/btnBudget" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Transaction"
+        app:layout_constraintEnd_toEndOf="@+id/btnTransactions"
+        app:layout_constraintStart_toStartOf="@+id/btnTransactions"
+        app:layout_constraintTop_toBottomOf="@+id/btnTransactions" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Balance"
+        app:layout_constraintEnd_toEndOf="@+id/btnBalance"
+        app:layout_constraintStart_toStartOf="@+id/btnBalance"
+        app:layout_constraintTop_toBottomOf="@+id/btnBalance" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Analysis"
+        app:layout_constraintEnd_toEndOf="@+id/btnAnalysis"
+        app:layout_constraintStart_toStartOf="@+id/btnAnalysis"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnalysis" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction History"
+        app:layout_constraintEnd_toEndOf="@+id/btnTransHistory"
+        app:layout_constraintStart_toStartOf="@+id/btnTransHistory"
+        app:layout_constraintTop_toBottomOf="@+id/btnTransHistory" />
 </androidx.constraintlayout.widget.ConstraintLayout>
