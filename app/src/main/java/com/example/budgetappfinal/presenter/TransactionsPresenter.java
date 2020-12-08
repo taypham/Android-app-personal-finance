@@ -31,6 +31,7 @@ public class TransactionsPresenter {
 
             if ( transaction.insertTransaction( description, category,  Double.parseDouble(amount), dateRecorded ) ) {
                 updatebudgetspent();
+                // Add update balance (- transaction)
                 Toast.makeText(c.getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
                 return true;
             } else {

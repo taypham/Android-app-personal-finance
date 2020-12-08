@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.budgetappfinal.view.AnalysisActivity;
 import com.example.budgetappfinal.view.BalanceActivity;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAnalysis;
     private Button btnBalance;
     private Button btnTransHistory;
-    //Tay Pham Comment
+    // Tay Pham Comment
     // Laura Comment
     // Ailin Comment//
     @Override
@@ -28,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnBudget =  findViewById(R.id.btnBudget);
-        btnTransctions =  findViewById(R.id.btnTransactions);
+        btnTransctions =  findViewById(R.id.btnAddTransaction);
         btnBalance =  findViewById(R.id.btnBalance);
         btnAnalysis =  findViewById(R.id.btnAnalysis);
-        btnTransHistory =findViewById(R.id.btnTransHistory);
+        btnTransHistory = findViewById(R.id.btnTransHistory);
 
         btnBudget.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,5 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }
