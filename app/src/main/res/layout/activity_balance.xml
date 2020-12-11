@@ -12,7 +12,8 @@
         android:layout_height="45dp"
         android:text="Balance and Income"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,62 +22,53 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028" />
 
-    <TextView
-        android:id="@+id/tvAddIncome"
-        android:layout_width="145dp"
-        android:layout_height="41dp"
-        android:text="Add Income"
-        android:textAlignment="textStart"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
 
     <TextView
         android:id="@+id/tvBalance"
-        android:layout_width="139dp"
-        android:layout_height="42dp"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="24dp"
         android:text="Balance"
         android:textAlignment="textStart"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
-
-
-    <TextView
-        android:id="@+id/tvTotalIncome"
-        android:layout_width="151dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="23dp"
-        android:text="Total Income"
-        android:textSize="24sp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554" />
+        app:layout_constraintVertical_bias="0.139" />
+
+    <TextView
+        android:id="@+id/tvAddIncome"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:text="Add Income"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309" />
 
     <EditText
         android:id="@+id/edtAddIncome"
-        android:layout_width="187dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.794"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
-
+        app:layout_constraintVertical_bias="0.31" />
 
     <Button
         android:id="@+id/btnSubmit"
@@ -85,35 +77,54 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintHorizontal_bias="0.836"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.427" />
 
     <TextView
         android:id="@+id/tvAmount"
-        android:layout_width="187dp"
-        android:layout_height="40dp"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintVertical_bias="0.225" />
+
+    <TextView
+        android:id="@+id/tvTotalIncome"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="24dp"
+        android:text="Total Income"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
 
     <TextView
         android:id="@+id/tvBalanceShow"
-        android:layout_width="187dp"
-        android:layout_height="40dp"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.799"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

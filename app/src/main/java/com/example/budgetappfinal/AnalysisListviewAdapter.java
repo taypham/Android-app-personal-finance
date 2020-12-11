@@ -49,13 +49,14 @@ public class AnalysisListviewAdapter extends ArrayAdapter<BudgetAnalysis> {
             TextView content2 = (TextView) view.findViewById(R.id.textView3);
 
             if (title != null) {
-                title.setText("Budget for "+budgetAnalysis.getBudgetCategory()+": $"+budgetAnalysis.getBudgetAmount());
+                title.setText(budgetAnalysis.getBudgetCategory()+": $"+budgetAnalysis.getBudgetAmount());
             }
             if (content1 != null) {
                 content1.setText("You spent: $"+(Double)budgetAnalysis.getAmountSpent());
             }
             if (content2 != null) {
                 if((Double)budgetAnalysis.getBudgetBalance()<0){
+                    content2.setTextColor(Color.parseColor("#BF0000"));
                     content2.setText("YOU OVER SPENT: $"+((Double)budgetAnalysis.getBudgetBalance()*(-1))+" on "+budgetAnalysis.getBudgetCategory());
                 }else
                     content2.setText("You have: $"+(Double)budgetAnalysis.getBudgetBalance()+" left for "+budgetAnalysis.getBudgetCategory());

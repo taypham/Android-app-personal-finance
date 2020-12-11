@@ -40,9 +40,8 @@ public class Database extends SQLiteOpenHelper {
                 "date text not null);"
         );
         db.execSQL("create table " + TABLE_BALANCE +
-                "(addIncomeCode integer primary key autoincrement," +
+                "(id integer primary key autoincrement," +
                 "balance real not null, " +
-                "addIncome real not null, " +
                 "income real not null); "
         );
         db.execSQL("create table " + TABLE_BUDGET_ANALYSIS +

@@ -10,7 +10,7 @@ import com.example.budgetappfinal.model.Budget;
 import java.util.ArrayList;
 
 public class BudgetDao {
-    private Database database;
+    private static Database database;
 
     public BudgetDao(Context context) {
         database = new Database(context);
@@ -40,6 +40,18 @@ public class BudgetDao {
         while(res.isAfterLast() == false){
             array_list.add(res.getString(res.getColumnIndex("category"))+": $"+
                     res.getString(res.getColumnIndex("amount")));
+            res.moveToNext();
+        }
+        return array_list;
+    }
+    public static ArrayList<String> getAllBudgetCategory() {
+        ArrayList<String> array_list = new ArrayList<String>();
+        SQLiteDatabase db = database.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from budget",null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getString(res.getColumnIndex("category")));
             res.moveToNext();
         }
         return array_list;

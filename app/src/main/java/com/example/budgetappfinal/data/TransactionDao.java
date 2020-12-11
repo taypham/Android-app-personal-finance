@@ -18,7 +18,7 @@ public class TransactionDao {
         database = new Database(context);
     }
 
-    public boolean insertTransaction(String description, String category, Double amount, String date) {
+    public boolean insertTransaction(String description, String category, double amount, String date) {
         SQLiteDatabase db = database.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 

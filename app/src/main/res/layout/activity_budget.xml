@@ -17,7 +17,7 @@
         android:text="@string/category"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#000000"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints" />
@@ -33,8 +33,9 @@
         android:text="@string/amount"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#000000"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/spCategoryB"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCategory"
         tools:ignore="MissingConstraints" />
@@ -49,6 +50,7 @@
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tvAmount"
         app:layout_constraintTop_toBottomOf="@+id/spCategoryB"
         tools:ignore="MissingConstraints" />
@@ -61,6 +63,7 @@
         android:dropDownWidth="wrap_content"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tvCategory"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -94,16 +97,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="337dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="339dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:text="CREATE A BUDGET BY CHOOSING A CATEGORY AND ENTER AMOUNT"
+        android:text="Create a budget:"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvCategory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.319"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

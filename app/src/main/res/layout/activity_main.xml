@@ -99,7 +99,7 @@
         android:layout_marginEnd="16dp"
         android:background="#FFFFFF"
         android:drawableLeft="@drawable/icons8_money_bag"
-        android:text="Budget"
+        android:text="Create Budgets"
         android:textAlignment="textStart"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

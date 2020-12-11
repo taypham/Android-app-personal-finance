@@ -1,35 +1,27 @@
 package com.example.budgetappfinal.model;
 
 public class Balance {
-    private float addIncome;
-    private float balance;
-    private float income;
+    private Double balance;
+    private Double income;
 
-    public Balance(float addIncome, float balance, float income) {
-        this.addIncome = addIncome;
+    public Balance(double balance, double income) {
         this.balance = balance;
         this.income = income;
 
     }
 
-    public float getAddIncome() {
-        return addIncome;
-    }
-    public void setAddIncome(float addIncome) {
-        this.addIncome = addIncome;
-    }
 
-    public float getBalance() {
+    public double getBalance() {
         return balance;
     }
-    public void setBalance(float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public float getIncome() {
+    public double getIncome() {
         return income;
     }
-    public void setIncome(float income) {
+    public void setIncome(double income) {
         this.income = income;
     }
 
